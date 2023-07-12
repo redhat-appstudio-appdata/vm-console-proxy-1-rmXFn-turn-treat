@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: vm-console-proxy-ulam
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: vm-console-proxy-ulam
+    app.kubernetes.io/part-of: vm-console-proxy-1
+  name: vm-console-proxy-ulampser
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: vm-console-proxy-ulam
+    weight: 100
+status: {}
